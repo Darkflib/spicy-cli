@@ -14,7 +14,7 @@ def generate_uuid(count: int = typer.Option(1, "--count", "-n", help="Number of 
 
     # ...
     Args:
-        count: The number of UUIDs to generate. Must be at least 1.
+        count, -n: The number of UUIDs to generate. Must be at least 1.
 
     Raises:
         typer.Exit: If count is less than 1.
