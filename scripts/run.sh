@@ -105,7 +105,7 @@ run_tests() {
     ensure_venv
     
     echo "Running pytest with coverage..."
-    pytest --cov=spicy_cli --cov-report=term-missing
+    pytest
 }
 
 # Clean build artifacts

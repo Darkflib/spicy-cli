@@ -7,7 +7,7 @@ app = typer.Typer(help="Generate UUIDs.")
 console = Console()
 
 
-@app.command("generate", help="Generate one or more UUIDs.")
+@app.command("generate", help="Generates and prints one or more UUIDs to the console.")
 def generate_uuid(count: int = typer.Option(1, "--count", "-n", help="Number of UUIDs to generate.")) -> None:
     """
     Generates and prints one or more UUIDs to the console.
