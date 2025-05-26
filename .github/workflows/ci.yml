@@ -130,7 +130,7 @@ jobs:
         uv venv
         uv pip install -e ".[dev]"
         uv pip install safety bandit    - name: Run safety check
-      run: uv run safety scan --json
+        uv run safety scan --json
 
     - name: Run bandit security linter
       run: uv run bandit -r src/ -f json
