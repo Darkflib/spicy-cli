@@ -2,6 +2,12 @@
 
 A modern Python command-line interface with multiple commands.
 
+[![CI](https://github.com/darkflib/spicy-cli/workflows/CI/badge.svg)](https://github.com/darkflib/spicy-cli/actions/workflows/ci.yml)
+[![Code Quality](https://github.com/darkflib/spicy-cli/workflows/Code%20Quality/badge.svg)](https://github.com/darkflib/spicy-cli/actions/workflows/code-quality.yml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
 ## Features
 
 - Multiple commands with subcommands
@@ -10,6 +16,8 @@ A modern Python command-line interface with multiple commands.
 - Detailed help text for all commands
 - Type annotations and validation
 - Automatic shell completion
+- Comprehensive CI/CD with GitHub Actions
+- Pre-commit hooks for code quality
 
 ## Installation
 
@@ -209,6 +217,80 @@ Lint with pylint (with 120 char line length):
 
 ```bash
 pylint src/ tests/
+```
+
+## Development
+
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/darkflib/spicy-cli.git
+cd spicy-cli
+
+# Set up development environment
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+uv pip install -e ".[dev]"
+
+# Install pre-commit hooks
+make pre-commit-install
+```
+
+### Available Make Commands
+
+This project includes a Makefile with common development tasks:
+
+```bash
+make help              # Show all available commands
+make dev               # Install development dependencies
+make test              # Run tests
+make test-all          # Run tests with full coverage reports
+make lint              # Run all linting tools
+make format            # Format code with black and isort
+make type-check        # Run mypy type checking
+make security          # Run security checks (safety, bandit)
+make ci                # Run all CI checks locally
+make clean             # Clean build artifacts
+make build             # Build the package
+make pre-commit        # Run pre-commit on all files
+```
+
+#### Windows Alternative
+
+On Windows, you can use the provided batch script instead of make:
+
+```cmd
+dev.bat help           # Show all available commands
+dev.bat dev            # Install development dependencies
+dev.bat test           # Run tests
+dev.bat lint           # Run all linting tools
+dev.bat ci             # Run all CI checks locally
+```
+
+### CI/CD
+
+This project uses GitHub Actions for continuous integration and deployment:
+
+- **CI Workflow** (`ci.yml`): Runs tests, linting, and type checking on multiple Python versions and operating systems
+- **Release Workflow** (`release.yml`): Automatically publishes to PyPI when a release is created
+- **Code Quality Workflow** (`code-quality.yml`): Runs security scans, dependency reviews, and automated dependency updates
+- **Documentation Workflow** (`docs.yml`): Builds and deploys documentation (if present)
+
+All workflows use `uv` for fast, reliable dependency management.
+
+### Pre-commit Hooks
+
+Pre-commit hooks are configured to run:
+- `black` for code formatting
+- `isort` for import sorting
+- `ruff` for linting and auto-fixes
+- `mypy` for type checking
+- `pylint` for additional code quality checks
+
+Install them with:
+```bash
+make pre-commit-install
 ```
 
 ## Docker
