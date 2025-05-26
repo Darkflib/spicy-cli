@@ -7,7 +7,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: release
+    environment: pypi
+    if: github.event.release.prerelease == false  # Only run for non-prerelease versions
     permissions:
       id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
     
