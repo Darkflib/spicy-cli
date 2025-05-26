@@ -30,6 +30,15 @@ dependencies = [
     "httpx>=0.26.0",
 ]
 
+[project.urls]
+homepage = "https://spicycentral.org/"
+repository = "https://github.com/darkflib/spicy-cli"
+documentation = "https://darkflib.github.io/spicy-cli/"
+issue-tracker = "https://github.com/darkflib/spicy-cli/issues"
+source = "https://github.com/darkflib/spicy-cli"
+changelog = "https://dev.spicycentral.org/spicy-cli/changelog"
+pypi = "https://pypi.org/spicycentral/spicy-cli/"
+
 [project.optional-dependencies]
 dev = [
     "black>=23.12.0",

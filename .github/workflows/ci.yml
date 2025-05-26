@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.11"] #, "3.12", "3.13"] # Uncomment to test multiple Python versions as needed (reduces minutes burnt on CI)
+        python-version: ["3.13"] #, "3.12", "3.13"] # Uncomment to test multiple Python versions as needed (reduces minutes burnt on CI)
 
     steps:
     - uses: actions/checkout@v4
@@ -50,7 +50,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python 3.11
+    - name: Set up Python 3.13
       uses: actions/setup-python@v5
       with:
         python-version: "3.13"
@@ -86,7 +86,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python 3.11
+    - name: Set up Python 3.13
       uses: actions/setup-python@v5
       with:
         python-version: "3.13"
@@ -115,7 +115,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python 3.11
+    - name: Set up Python 3.13
       uses: actions/setup-python@v5
       with:
         python-version: "3.13"
