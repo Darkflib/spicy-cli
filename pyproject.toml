@@ -133,3 +133,13 @@ max-parents = 7
 max-attributes = 12
 min-public-methods = 1
 max-public-methods = 20
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "isort>=6.0.1",
+    "mypy>=1.15.0",
+    "pre-commit>=4.2.0",
+    "pylint>=3.3.7",
+    "ruff>=0.11.11",
+]
