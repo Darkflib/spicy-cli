@@ -83,5 +83,5 @@ def test_uuid_generate_help() -> None:
     """
     result = runner.invoke(app, ["uuid", "generate", "--help"])
     assert result.exit_code == 0
-    assert "Generate one or more UUIDs." in result.stdout
+    assert "Generates and prints one or more UUIDs to the console." in result.stdout
     assert "--count, -n INTEGER" in result.stdout
