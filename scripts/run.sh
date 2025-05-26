@@ -20,7 +20,7 @@ ensure_venv() {
             uv venv "$VENV_DIR"
         else
             echo "uv is not installed. Please install it with:"
-            echo "curl -sSf https://install.python-poetry.org | python3 -"
+            echo "curl -sSf https://install.uv.tools | sh"
             exit 1
         fi
         
