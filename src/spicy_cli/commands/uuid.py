@@ -9,7 +9,15 @@ console = Console()
 def generate_uuid(
     count: int = typer.Option(1, "--count", "-n", help="Number of UUIDs to generate.")
 ) -> None:
-    """Generate one or more UUIDs."""
+    """
+    Generates and prints one or more UUIDs to the console.
+    
+    Args:
+        count: The number of UUIDs to generate. Must be at least 1.
+    
+    Raises:
+        typer.Exit: If count is less than 1.
+    """
     if count < 1:
         console.print("[bold red]Error: Number of UUIDs must be at least 1.[/bold red]")
         raise typer.Exit(code=1)

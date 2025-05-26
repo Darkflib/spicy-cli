@@ -8,6 +8,15 @@ runner = CliRunner()
 UUID_PATTERN = re.compile(r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$')
 
 def is_valid_uuid(uuid_string):
+    """
+    Checks whether a string matches the standard UUID format.
+    
+    Args:
+        uuid_string: The string to validate.
+    
+    Returns:
+        True if the string is a valid UUID, otherwise False.
+    """
     return bool(UUID_PATTERN.match(uuid_string))
 
 def test_uuid_generate_default():
@@ -19,7 +28,9 @@ def test_uuid_generate_default():
     assert is_valid_uuid(output_lines[0])
 
 def test_uuid_generate_multiple():
-    """Test generating multiple UUIDs using the -n option."""
+    """
+    Tests that the `uuid generate` command outputs the correct number of valid UUIDs when the `-n` option is used.
+    """
     count = 5
     result = runner.invoke(app, ["uuid", "generate", "-n", str(count)])
     assert result.exit_code == 0
@@ -39,7 +50,11 @@ def test_uuid_generate_custom_count():
         assert is_valid_uuid(line)
 
 def test_uuid_generate_invalid_count_zero():
-    """Test generating UUIDs with an invalid count (0)."""
+    """
+    Tests that the CLI returns an error when attempting to generate zero UUIDs.
+    
+    Verifies that providing a count of 0 results in a non-zero exit code and an appropriate error message.
+    """
     result = runner.invoke(app, ["uuid", "generate", "-n", "0"])
     assert result.exit_code == 1
     assert "Error: Number of UUIDs must be at least 1." in result.stdout
@@ -52,7 +67,11 @@ def test_uuid_generate_invalid_count_negative():
 
 # It might also be useful to test the help message for the command
 def test_uuid_generate_help():
-    """Test the help message for the uuid generate command."""
+    """
+    Tests that the help message for the 'uuid generate' command is displayed correctly.
+    
+    Verifies that the help output includes the command description and the '--count, -n' option.
+    """
     result = runner.invoke(app, ["uuid", "generate", "--help"])
     assert result.exit_code == 0
     assert "Generate one or more UUIDs." in result.stdout
