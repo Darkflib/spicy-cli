@@ -88,7 +88,7 @@ REM Run tests
 call :ensure_venv
     
 echo Running pytest with coverage...
-pytest --cov=spicy_cli --cov-report=term-missing
+pytest
 goto :eof
 
 REM Clean build artifacts

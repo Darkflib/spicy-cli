@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from rich.console import Console
 
 from spicy_cli import __version__
-from spicy_cli.commands import command1, command2, config, plugin
+from spicy_cli.commands import command1, command2, config, plugin, uuid
 from spicy_cli.plugins import find_plugins
 
 # Load environment variables from .env file if present
@@ -27,6 +27,7 @@ app.add_typer(command1.app, name="command1")
 app.add_typer(command2.app, name="command2")
 app.add_typer(config.app, name="config")
 app.add_typer(plugin.app, name="plugin")
+app.add_typer(uuid.app, name="uuid")
 
 # Load and register plugins
 for name, plugin_class in find_plugins().items():
