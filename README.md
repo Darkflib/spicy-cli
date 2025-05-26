@@ -34,8 +34,22 @@ git clone https://github.com/darkflib/spicy-cli.git
 cd spicy-cli
 uv venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-uv pip install -e '.[dev]'
+uv sync
 ```
+
+Install pre-commit hooks:
+
+```bash
+uv run pre-commit install
+```
+
+On Windows with Microsoft Store Python, you might encounter issues with pre-commit. Use our helper script:
+
+```bash
+.\scripts\fix_precommit_windows.bat
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more detailed development setup instructions.
 
 ## Usage
 
